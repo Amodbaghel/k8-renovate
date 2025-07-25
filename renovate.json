@@ -1,13 +1,7 @@
 {
-	  "extends": ["config:base"],
-	    "regexManagers": [
-		        {
-				      "fileMatch": ["(^|/)deployment\\.ya?ml$"],
-				            "matchStrings": [
-						            "image:\\s+(?<depName>[^:]+):(?<currentValue>.*)"
-							          ],
-								        "datasourceTemplate": "docker"
-									    }
-									      ]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "kubernetes": {
+    "fileMatch": ["\\.yaml$"]
+  }
 }
-
