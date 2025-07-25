@@ -1,13 +1,14 @@
 {
   "extends": ["config:base"],
-  "enabledManagers": ["regex"],
   "regexManagers": [
     {
-      "fileMatch": ["(^|/)deployment\\.yaml$"],
+      "fileMatch": ["(^|/)deployment\\.ya?ml$"],
       "matchStrings": [
-        "image:\\s+(?<depName>[^:]+):(?<currentValue>\\S+)"
+        "image:\\s+(?<depName>[^:]+):(?<currentValue>.*)"
       ],
       "datasourceTemplate": "docker"
     }
   ]
 }
+
+
