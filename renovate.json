@@ -1,13 +1,17 @@
 {
-	  "extends": ["config:base"],
-	    "regexManagers": [
-		        {
-				      "fileMatch": ["(^|/)deployment\\.ya?ml$"],
-				            "matchStrings": [
-						            "image:\\s+(?<depName>[^:]+):(?<currentValue>.*)"
-							          ],
-								        "datasourceTemplate": "docker"
-									    }
-									      ]
+	"extends": [
+		"config:recommended"
+	],
+	"customManagers": [
+		{
+			"customType": "regex",
+			"managerFilePatterns": [
+				"/(^|/)deployment\\.ya?ml$/"
+			],
+			"matchStrings": [
+				"image:\\s+(?<depName>[^:]+):(?<currentValue>.*)"
+			],
+			"datasourceTemplate": "docker"
+		}
+	]
 }
-
